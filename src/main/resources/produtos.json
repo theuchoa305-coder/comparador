@@ -1,0 +1,122 @@
+[
+  {
+    "nome": "Notebook Dell",
+    "imagemUrl": "https://exemplo.com/notebook.jpg",
+    "descricao": "Notebook de alto desempenho",
+    "preco": 4500.00,
+    "classificacao": 4.7,
+    "especificacoes": {
+      "Processador": "Intel i7",
+      "RAM": "16GB",
+      "Armazenamento": "512GB SSD"
+    }
+  },
+  {
+    "nome": "Smartphone Samsung",
+    "imagemUrl": "https://exemplo.com/smartphone.jpg",
+    "descricao": "Celular com câmera tripla",
+    "preco": 2500.00,
+    "classificacao": 4.5,
+    "especificacoes": {
+      "Tela": "6.5 polegadas",
+      "Bateria": "5000mAh",
+      "Câmera": "108MP"
+    }
+  },
+  {
+    "nome": "Monitor LG UltraWide",
+    "imagemUrl": "https://exemplo.com/monitor.jpg",
+    "descricao": "Monitor 29 polegadas UltraWide",
+    "preco": 1200.0,
+    "classificacao": 4.6,
+    "especificacoes": {
+      "Resolução": "2560x1080",
+      "Tipo": "IPS",
+      "Conexões": "HDMI, DisplayPort"
+    }
+  },
+  {
+    "nome": "Mouse Logitech MX Master 3",
+    "imagemUrl": "https://exemplo.com/mouse.jpg",
+    "descricao": "Mouse ergonômico para produtividade",
+    "preco": 450.0,
+    "classificacao": 4.8,
+    "especificacoes": {
+      "Sensor": "Laser",
+      "Conexão": "Bluetooth/USB",
+      "Bateria": "Recarregável"
+    }
+  },
+  {
+    "nome": "Teclado Mecânico Redragon",
+    "imagemUrl": "https://exemplo.com/teclado.jpg",
+    "descricao": "Teclado mecânico RGB para gamers",
+    "preco": 350.0,
+    "classificacao": 4.4,
+    "especificacoes": {
+      "Switch": "Blue",
+      "Iluminação": "RGB",
+      "Layout": "ABNT2"
+    }
+  },
+  {
+    "nome": "Fone de Ouvido JBL",
+    "imagemUrl": "https://exemplo.com/fone.jpg",
+    "descricao": "Fone de ouvido bluetooth com graves potentes",
+    "preco": 299.0,
+    "classificacao": 4.3,
+    "especificacoes": {
+      "Tipo": "Over-ear",
+      "Bateria": "20h",
+      "Microfone": "Integrado"
+    }
+  },
+  {
+    "nome": "Impressora HP DeskJet",
+    "imagemUrl": "https://exemplo.com/impressora.jpg",
+    "descricao": "Impressora multifuncional jato de tinta",
+    "preco": 499.0,
+    "classificacao": 4.1,
+    "especificacoes": {
+      "Tipo": "Multifuncional",
+      "Conexão": "Wi-Fi",
+      "Velocidade": "20 ppm"
+    }
+  },
+  {
+    "nome": "Tablet Apple iPad",
+    "imagemUrl": "https://exemplo.com/ipad.jpg",
+    "descricao": "Tablet com tela Retina e chip A14",
+    "preco": 3500.0,
+    "classificacao": 4.9,
+    "especificacoes": {
+      "Tela": "10.2 polegadas",
+      "Armazenamento": "128GB",
+      "Câmera": "8MP"
+    }
+  },
+  {
+    "nome": "Smartwatch Xiaomi Mi Band 7",
+    "imagemUrl": "https://exemplo.com/miband.jpg",
+    "descricao": "Pulseira inteligente com monitoramento de saúde",
+    "preco": 250.0,
+    "classificacao": 4.6,
+    "especificacoes": {
+      "Tela": "AMOLED",
+      "Bateria": "14 dias",
+      "Sensores": "Batimentos, Sono"
+    }
+  },
+  {
+    "nome": "Câmera GoPro Hero 10",
+    "imagemUrl": "https://exemplo.com/gopro.jpg",
+    "descricao": "Câmera de ação 5K com estabilização",
+    "preco": 3200.0,
+    "classificacao": 4.8,
+    "especificacoes": {
+      "Resolução": "5K",
+      "Resistência": "Água até 10m",
+      "Conectividade": "Wi-Fi, Bluetooth"
+    }
+  }
+]

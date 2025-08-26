@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: comparador-app
+    restart: unless-stopped
+    develop:
+      watch:
+        - action: sync
+          path: ./src/main
+          target: /app/src/main
+          ignore:
+            - ./**/*.class
+        - action: rebuild
+          path: pom.xml
