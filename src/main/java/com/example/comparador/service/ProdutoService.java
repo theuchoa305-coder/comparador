@@ -1,39 +1,52 @@
 package com.example.comparador.service;
 
 import com.example.comparador.model.Produto;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.example.comparador.repository.ProdutoFileRepository;
 import org.springframework.stereotype.Service;
 
-import java.io.InputStream;
 import java.util.List;
 
+/**
+ * Serviço responsável por manipular os produtos.
+ * <p>
+ * Essa classe abstrai a lógica de negócio relacionada a produtos,
+ * utilizando o {@link ProdutoFileRepository} para buscar os dados do arquivo JSON.
+ * </p>
+ */
 @Service
 public class ProdutoService {
-    private final ObjectMapper mapper = new ObjectMapper();
 
-    private static final Logger logger = LoggerFactory.getLogger(ProdutoService.class);
-    
-    public List<Produto> listarProdutos() throws Exception {
-        logger.debug("Iniciando carregamento do arquivo produtos.json");
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("produtos.json")) {
-            if (inputStream == null) {
-                logger.error("Arquivo produtos.json não encontrado no classpath");
-                throw new RuntimeException("Arquivo produtos.json não encontrado no classpath");
-            }
-            try {
-                List<Produto> produtos = mapper.readValue(inputStream, new TypeReference<List<Produto>>() {});
-                logger.debug("Arquivo produtos.json carregado com sucesso. {} produtos encontrados", produtos.size());
-                return produtos;
-            } catch (Exception e) {
-                logger.error("Erro ao fazer parse do arquivo produtos.json: {}", e.getMessage(), e);
-                throw new RuntimeException("Erro ao fazer parse do arquivo produtos.json: " + e.getMessage(), e);
-            }
-        } catch (Exception e) {
-            logger.error("Erro ao ler arquivo produtos.json: {}", e.getMessage(), e);
-            throw new RuntimeException("Erro ao ler arquivo produtos.json: " + e.getMessage(), e);
-        }
+    private final ProdutoFileRepository produtoRepository;
+
+    /**
+     * Injeta a dependência do repositório responsável por carregar os produtos do JSON.
+     *
+     * @param produtoRepository repositório de produtos baseado em arquivo
+     */
+    public ProdutoService(ProdutoFileRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
+    }
+
+    /**
+     * Lista todos os produtos disponíveis.
+     *
+     * @return lista de produtos carregados do arquivo JSON
+     */
+    public List<Produto> listarProdutos() {
+        return produtoRepository.buscarTodos();
+    }
+
+    /**
+     * Busca um produto pelo nome.
+     *
+     * @param nome nome do produto
+     * @return produto correspondente ou null caso não encontrado
+     */
+    public Produto buscarPorNome(String nome) {
+        return listarProdutos()
+                .stream()
+                .filter(p -> p.getNome().equalsIgnoreCase(nome))
+                .findFirst()
+                .orElse(null);
     }
 }

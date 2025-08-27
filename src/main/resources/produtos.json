@@ -118,5 +118,29 @@
       "Resistência": "Água até 10m",
       "Conectividade": "Wi-Fi, Bluetooth"
     }
+  },
+  {
+    "nome": "Calça Jeans Masculina",
+    "imagemUrl": "https://exemplo.com/calca.jpg",
+    "descricao": "Calça jeans confortável e moderna",
+    "preco": 199.0,
+    "classificacao": 4.2,
+    "especificacoes": {
+      "Tamanho": "M, L, XL",
+      "Cor": "Azul",
+      "Material": "Algodão"
+    }
+  },
+  {
+    "nome": "Camiseta Polo Feminina",
+    "imagemUrl": "https://exemplo.com/camiseta.jpg",
+    "descricao": "Camiseta polo casual e elegante",
+    "preco": 129.0,
+    "classificacao": 4.5,
+    "especificacoes": {
+      "Tamanho": "P, M, G",
+      "Cor": "Branca",
+      "Material": "Algodão"
+    }
   }
 ]

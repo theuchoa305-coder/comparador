@@ -8,19 +8,26 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.comparador.dto.ProdutoDTO;
 import com.example.comparador.mapper.ProdutoMapper;
+import com.example.comparador.model.Produto;
 import com.example.comparador.service.ProdutoService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+/**
+ * Controller responsável por expor endpoints da API relacionados a produtos.
+ * <p>
+ * Essa classe fornece métodos para listar produtos e verificar o status da API.
+ * Utiliza {@link ProdutoService} para acesso aos dados e {@link ProdutoMapper}
+ * para conversão de {@link com.example.comparador.model.Produto} para {@link ProdutoDTO}.
+ * </p>
+ */
 @RestController
-@RequestMapping("/api/produtos")
+@RequestMapping("/api/v1/produtos")
 @Tag(name = "Produtos", description = "API para gerenciamento de produtos")
 public class ProdutoController {
     
@@ -28,11 +35,22 @@ public class ProdutoController {
     private final ProdutoService service;
     private final ProdutoMapper mapper;
 
+    /**
+     * Construtor da controller.
+     *
+     * @param service serviço responsável pelo acesso e manipulação dos produtos
+     * @param mapper  responsável pela conversão de entidades para DTOs
+     */
     public ProdutoController(ProdutoService service, ProdutoMapper mapper) {
         this.service = service;
         this.mapper = mapper;
     }
 
+    /**
+     * Lista todos os produtos disponíveis para comparação.
+     *
+     * @return {@link ResponseEntity} contendo a lista de produtos em JSON
+     */
     @GetMapping
     @Operation(
         summary = "Lista todos os produtos",
@@ -52,6 +70,32 @@ public class ProdutoController {
         }
     }
 
+    /**
+     * Busca um produto específico pelo nome.
+     *
+     * @param nome nome do produto
+     * @return {@link ResponseEntity} com o produto encontrado ou 404 se não existir
+     */
+    @GetMapping("/{nome}")
+    @Operation(
+        summary = "Busca produto por nome",
+        description = "Retorna os detalhes de um produto específico pelo nome"
+    )
+    public ResponseEntity<ProdutoDTO> buscarPorNome(@PathVariable String nome) {
+        logger.info("Buscando produto pelo nome: {}", nome);
+        Produto produto = service.buscarPorNome(nome);
+        if (produto == null) {
+            logger.warn("Produto não encontrado: {}", nome);
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(mapper.toDTO(produto));
+    }
+
+    /**
+     * Retorna informações sobre o status atual da API.
+     *
+     * @return {@link ResponseEntity} contendo um {@link Map} com informações de status
+     */
     @GetMapping("/status")
     @Operation(
         summary = "Verifica o status da API",
