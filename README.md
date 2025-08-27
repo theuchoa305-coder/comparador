@@ -4,12 +4,11 @@ Sistema para comparação de produtos, desenvolvido em Java com arquitetura mode
 
 ## Visão Geral
 
-O **Comparador** é uma API REST que permite cadastrar, consultar e comparar produtos através de endpoints intuitivos. O projeto prioriza qualidade de código, padronização, testes automatizados e documentação clara.
+O **Comparador** é uma API REST que permite consultar e comparar produtos através de endpoints intuitivos. O projeto prioriza qualidade de código, padronização, testes automatizados e documentação clara.
 
 ## Principais Funcionalidades
 
-- Cadastro e consulta de produtos
-- Comparação entre produtos
+- Consulta de produtos
 - Tratamento robusto de erros
 - Documentação automática via Swagger/OpenAPI
 - Testes automatizados (Junit/Mockito)
@@ -17,10 +16,8 @@ O **Comparador** é uma API REST que permite cadastrar, consultar e comparar pro
 
 ## Endpoints Principais
 
-- `POST /produtos`: Cadastra um novo produto
 - `GET /produtos`: Lista todos os produtos
 - `GET /produtos/{id}`: Consulta um produto pelo ID
-- `POST /comparar`: Compara dois produtos
 
 > Para detalhes completos dos endpoints, acesse `/swagger-ui.html` após iniciar o projeto.
 
@@ -138,6 +135,4 @@ A combinação dessas tecnologias e ferramentas garante um desenvolvimento ágil
 - Junit/Mockito
 - GenAI/IDEs para geração e revisão de código
 
----
 
-Qualquer dúvida ou sugestão, abra um [issue](https://github.com/theuchoa305-coder/comparador/issues).
